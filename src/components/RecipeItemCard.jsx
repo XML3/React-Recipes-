@@ -5,6 +5,7 @@ export const RecipeItemCard = ({ item, clickFn }) => {
   return (
     <>
       <Card
+        bgColor="whitesmoke"
         borderRadius="xl"
         w="sm"
         h="30rem"
@@ -13,7 +14,7 @@ export const RecipeItemCard = ({ item, clickFn }) => {
         _hover={{ transform: "scale(1.01)" }}
       >
         <CardBody>
-          <Image h={64} w="sm" src={image} borderRadius="xl" />
+          <Image h={64} w="sm" src={image} borderRadius="xl" alt={label} />
           <Heading size="md" mt={4}>
             {label}
           </Heading>
