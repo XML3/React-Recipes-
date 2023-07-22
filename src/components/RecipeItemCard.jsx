@@ -1,7 +1,8 @@
 import { Card, CardBody, Image, Stack, Heading, Text } from "@chakra-ui/react";
 
 export const RecipeItemCard = ({ item, clickFn }) => {
-  const { image, label, url } = item.recipe;
+  const { image, label, url, dietLabels, cautions, mealType, dishType } =
+    item.recipe;
   return (
     <>
       <Card
@@ -21,6 +22,10 @@ export const RecipeItemCard = ({ item, clickFn }) => {
           <a href={url} target="_blank" rel="noopener noreferrer">
             View Recipe
           </a>
+          {dietLabels && <Text bgColor="lime">{dietLabels}</Text>}
+          {cautions && <Text bgColor="pink.400">{cautions}</Text>}
+          <Text>{mealType}</Text>
+          <Text>{dishType}</Text>
         </CardBody>
       </Card>
     </>
