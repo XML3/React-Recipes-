@@ -3,6 +3,7 @@ import { Card, CardBody, Image, Stack, Heading, Text } from "@chakra-ui/react";
 export const RecipeItemCard = ({ item, clickFn }) => {
   const { image, label, url, dietLabels, cautions, mealType, dishType } =
     item.recipe;
+
   return (
     <>
       <Card
@@ -22,10 +23,15 @@ export const RecipeItemCard = ({ item, clickFn }) => {
           <a href={url} target="_blank" rel="noopener noreferrer">
             View Recipe
           </a>
-          {dietLabels && <Text bgColor="lime">{dietLabels}</Text>}
-          {cautions && <Text bgColor="pink.400">{cautions}</Text>}
-          <Text>{mealType}</Text>
-          <Text>{dishType}</Text>
+          {dietLabels && <Text bgColor="lime">Diet Label: {dietLabels}</Text>}
+          {cautions && (
+            <Text bgColor="pink.400" fontWeight="bold">
+              Caution: {cautions}
+            </Text>
+          )}
+
+          <Text>Meal Type: {mealType}</Text>
+          <Text>Dish Type: {dishType}</Text>
         </CardBody>
       </Card>
     </>
