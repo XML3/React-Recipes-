@@ -1,4 +1,4 @@
-import { Center, SimpleGrid } from "@chakra-ui/react";
+import { Center, Heading, SimpleGrid } from "@chakra-ui/react";
 import { data } from "../utils/data";
 import { RecipeItemCard } from "../components/RecipeItemCard";
 
@@ -18,6 +18,7 @@ export const RecipeListPage = () => {
         bgColor="gray.900"
         color="whitesmoke"
       >
+        <Heading fontSize={"6xl"}>Recipe Checker</Heading>
         <SimpleGrid columns={4} gap={8}>
           {/* Mapped throught recipe object as the "item" prop for RecipeItemCard and used unique Key prop for each recipe item (index or recipe URL) */}
           {recipes.map((item, index) => (
