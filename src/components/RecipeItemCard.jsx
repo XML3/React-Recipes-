@@ -1,6 +1,7 @@
 import { Card, CardBody, Image, Stack, Heading, Text } from "@chakra-ui/react";
 
 export const RecipeItemCard = ({ item, clickFn }) => {
+  const { image, label, url } = item.recipe;
   return (
     <>
       <Card
@@ -12,7 +13,13 @@ export const RecipeItemCard = ({ item, clickFn }) => {
         _hover={{ transform: "scale(1.01)" }}
       >
         <CardBody>
-          <Image h={64} w="sm" src={item.image} borderRadius="xl" />
+          <Image h={64} w="sm" src={image} borderRadius="xl" />
+          <Heading size="md" mt={4}>
+            {label}
+          </Heading>
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            View Recipe
+          </a>
         </CardBody>
       </Card>
     </>
