@@ -23,7 +23,7 @@ export const RecipeItemCard = ({ item, clickFn }) => {
           <a href={url} target="_blank" rel="noopener noreferrer">
             View Recipe
           </a>
-          {dietLabels && <Text bgColor="lime">Diet Label: {dietLabels}</Text>}
+          {dietLabels && <Text>Diet Label: {dietLabels}</Text>}
           {cautions && (
             <Text bgColor="pink.400" fontWeight="bold">
               Caution: {cautions}
