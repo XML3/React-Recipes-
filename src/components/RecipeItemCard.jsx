@@ -1,8 +1,19 @@
 import { Card, CardBody, Image, Stack, Heading, Text } from "@chakra-ui/react";
 
 export const RecipeItemCard = ({ item, clickFn }) => {
-  const { image, label, url, dietLabels, cautions, mealType, dishType } =
-    item.recipe;
+  const {
+    image,
+    label,
+    url,
+    dietLabels,
+    cautions,
+    mealType,
+    dishType,
+    healthLabels,
+  } = item.recipe;
+
+  const isVegetarian = healthLabels.includes("Vegetarian");
+  const isVegan = healthLabels.includes("Vegan");
 
   return (
     <>
@@ -23,13 +34,19 @@ export const RecipeItemCard = ({ item, clickFn }) => {
           <a href={url} target="_blank" rel="noopener noreferrer">
             View Recipe
           </a>
-          {dietLabels && <Text>Diet Label: {dietLabels}</Text>}
+          {dietLabels && (
+            <Text bgColor="blue.200">Diet Label: {dietLabels}</Text>
+          )}
           {cautions && (
             <Text bgColor="pink.400" fontWeight="bold">
               Caution: {cautions}
             </Text>
           )}
-
+          {isVegan ? (
+            <Text bgColor="lime">Vegan</Text>
+          ) : isVegetarian ? (
+            <Text bgColor="lime">Vegetarian</Text>
+          ) : null}
           <Text>Meal Type: {mealType}</Text>
           <Text>Dish Type: {dishType}</Text>
         </CardBody>
