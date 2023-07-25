@@ -50,53 +50,100 @@ export const RecipePage = ({ item, clickFn }) => {
           h="calc(100vh - 100px)"
           w="100%"
         >
-          <Card bgColor="whitesmoke" borderRadius="xl" w="3xl" h="3xl">
-            <CardBody overflow="auto">
-              <Image h="sm" w="50%" src={image} borderRadius="xl" />
+          <Card
+            bgColor="whitesmoke"
+            borderRadius="xl"
+            w={{ base: "90%", md: "3xl" }}
+            h="3xl"
+          >
+            <CardBody overflow="auto" m={3}>
+              <Image h="xl" w="100%" src={image} borderRadius="xl" />
+
               <Box mt="6" spacing="3">
-                <Heading size="md" mt={4}>
-                  {label}
-                </Heading>
+                <Flex justifyContent="center">
+                  <Heading size="lg" mt={4} mb={4}>
+                    {label}
+                  </Heading>
+                </Flex>
 
                 <Text>{mealType}</Text>
                 <Text>{dishType}</Text>
-                <Text>Health Labels: {healthLabels}</Text>
-                <Text>Diet Labels: {dietLabels}</Text>
-                <Text bgColor="pink.400">Caution: {cautions}</Text>
-
-                {isVegan ? (
-                  <Text bgColor="lime">Vegan</Text>
-                ) : isVegetarian ? (
-                  <Text bgColor="lime">Vegetarian</Text>
-                ) : null}
-
-                {/* map through ingredientLines and target index of */}
                 <Text mt={4} fontSize="xl" fontWeight="bold">
-                  Ingredients:
+                  Health Labels:
                 </Text>
-                <ul>
-                  {ingredientLines.map((ingredient, index) => (
-                    <li key={index}>{ingredient}</li>
-                  ))}
-                </ul>
+                <Text mb={3}>{healthLabels}</Text>
 
-                <Text mt={4}>Total Cooking Time: {totalTime} minutes</Text>
-                <Text>Servings: {servings}</Text>
+                <Flex
+                  flexDirection={{ base: "column", md: "row" }}
+                  justifyContent="space-between"
+                >
+                  <Box mb={{ base: 6, md: 0 }}>
+                    {isVegan ? (
+                      <Text bgColor="lime">Vegan</Text>
+                    ) : isVegetarian ? (
+                      <Text bgColor="lime">Vegetarian</Text>
+                    ) : null}
 
-                <Text mt={4} fontSize="xl" fontWeight="bold">
-                  Total Nutrients:
-                </Text>
-                {/* convert totalNutrients object into an array of key-value pairs */}
-                <ul>
-                  {/* iterate through each key-value pair in the array/destructure the key-value pair into separate variables */}
-                  {Object.entries(filteredTotalNutrients).map(
-                    ([key, value]) => (
-                      <li key={key}>
-                        {value.label}: {value.quantity.toFixed(2)} {value.unit}
-                      </li>
-                    )
-                  )}
-                </ul>
+                    <Text mt={4} fontSize="xl" fontWeight="bold">
+                      Diet Labels:
+                    </Text>
+                    <Text bgColor="blue.200">{dietLabels}</Text>
+
+                    <Text mt={4} fontSize="xl" fontWeight="bold">
+                      Caution:
+                    </Text>
+                    <Text bgColor="pink.400" mb={6}>
+                      {cautions}
+                    </Text>
+                  </Box>
+
+                  <Box>
+                    <Text mt={4} fontSize="xl" fontWeight="bold">
+                      Total Cooking Time:
+                    </Text>
+                    <Text> {totalTime} minutes</Text>
+
+                    <Text mt={4} fontSize="xl" fontWeight="bold">
+                      Servings:
+                    </Text>
+                    <Text> {servings}</Text>
+                  </Box>
+                </Flex>
+
+                <Flex
+                  flexDirection={{ base: "column", md: "row" }}
+                  justifyContent="space-between"
+                >
+                  <Box>
+                    {/* map through ingredientLines and target index of */}
+                    <Text mt={4} fontSize="xl" fontWeight="bold">
+                      Ingredients:
+                    </Text>
+                    <ul>
+                      {ingredientLines.map((ingredient, index) => (
+                        <li key={index}>{ingredient}</li>
+                      ))}
+                    </ul>
+                  </Box>
+
+                  <Box>
+                    <Text mt={4} fontSize="xl" fontWeight="bold">
+                      Total Nutrients:
+                    </Text>
+                    {/* convert totalNutrients object into an array of key-value pairs */}
+                    <ul>
+                      {/* iterate through each key-value pair in the array/destructure the key-value pair into separate variables */}
+                      {Object.entries(filteredTotalNutrients).map(
+                        ([key, value]) => (
+                          <li key={key}>
+                            {value.label}: {value.quantity.toFixed(2)}{" "}
+                            {value.unit}
+                          </li>
+                        )
+                      )}
+                    </ul>
+                  </Box>
+                </Flex>
               </Box>
             </CardBody>
           </Card>
