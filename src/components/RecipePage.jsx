@@ -14,7 +14,6 @@ export const RecipePage = ({ item, clickFn }) => {
   const {
     image,
     label,
-    url,
     dietLabels,
     cautions,
     mealType,
