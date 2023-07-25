@@ -2,7 +2,7 @@ import { useState } from "react";
 import { TextInput } from "./ui/TextInput";
 import { Center, Heading } from "@chakra-ui/react";
 
-export const RecipeSearch = ({ items, clickFn, handleFilteredRecipes }) => {
+export const RecipeSearch = ({ items, handleFilteredRecipes }) => {
   const [searchField, setSearchField] = useState("");
 
   const handleChange = (event) => {
@@ -15,7 +15,18 @@ export const RecipeSearch = ({ items, clickFn, handleFilteredRecipes }) => {
       //filter Recipes (searchField)
       const matchedRecipes = items.filter((item) => {
         const { label, dietLabels, cautions, healthLabels } = item.recipe;
-        return label.toLowerCase().includes(searchValue.toLowerCase());
+        return (
+          label.toLowerCase().includes(searchValue.toLowerCase()) ||
+          dietLabels.some((label) =>
+            label.toLowerCase().includes(searchValue.toLowerCase())
+          ) ||
+          cautions.some((caution) =>
+            caution.toLowerCase().includes(searchValue.toLowerCase())
+          ) ||
+          healthLabels.some((label) =>
+            label.toLowerCase().includes(searchValue.toLowerCase())
+          )
+        );
       });
       //function call from App
       handleFilteredRecipes(matchedRecipes);
