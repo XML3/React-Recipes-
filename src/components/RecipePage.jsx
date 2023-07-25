@@ -28,6 +28,9 @@ export const RecipePage = ({ item, clickFn }) => {
   return (
     <>
       <Center bgColor="gray.900" h="100vh" flexDirection="column">
+        <Heading m={6} fontWeight="bold" fontSize="6xl" color="whitesmoke">
+          Recipe Checker
+        </Heading>
         <Card bgColor="whitesmoke" borderRadius="xl" w="3xl" h="3xl">
           <CardBody>
             <Image h="md" w="100%" src={image} borderRadius="xl" />
@@ -35,8 +38,8 @@ export const RecipePage = ({ item, clickFn }) => {
               <Heading size="md" mt={4}>
                 {label}
               </Heading>
-              <Text>Meal Type:{mealType}</Text>
-              <Text>Dish Type: {dishType}</Text>
+              <Text>{mealType}</Text>
+              <Text>{dishType}</Text>
               <Text>Health Labels: {healthLabels}</Text>
               <Text>Diet Labels: {dietLabels}</Text>
               <Text bgColor="pink.400">Caution: {cautions}</Text>
@@ -49,7 +52,12 @@ export const RecipePage = ({ item, clickFn }) => {
             </Stack>
           </CardBody>
         </Card>
-        <Button w="fit-content" bgColor="yellow.300" onClick={() => clickFn()}>
+        <Button
+          mt={6}
+          w="fit-content"
+          bgColor="yellow.300"
+          onClick={() => clickFn()}
+        >
           Back to Recipe Home Page
         </Button>
       </Center>
