@@ -33,7 +33,7 @@ export const RecipePage = ({ item, clickFn }) => {
         </Heading>
         <Card bgColor="whitesmoke" borderRadius="xl" w="3xl" h="3xl">
           <CardBody>
-            <Image h="md" w="100%" src={image} borderRadius="xl" />
+            <Image h="sm" w="50%" src={image} borderRadius="xl" />
             <Stack mt="6" spacing="3">
               <Heading size="md" mt={4}>
                 {label}
