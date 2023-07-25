@@ -1,25 +1,33 @@
 import { useState } from "react";
 import { TextInput } from "./ui/TextInput";
+import { Center, Heading } from "@chakra-ui/react";
 
 export const RecipeSearch = ({ items, clickFn, handleFilteredRecipes }) => {
   const [searchField, setSearchField] = useState("");
 
   const handleChange = (event) => {
-    setSearchField(event.target.value);
+    const searchValue = event.target.value;
+    setSearchField(searchValue);
 
-    //filter Recipes (searchField)
-    const matchedRecipes = items.filter((item) => {
-      const { label, dietLabels, cautions, healthLabels } = item.recipe;
-      return label.toLowerCase().includes(searchField.toLowerCase());
-    });
-    //function call from App
-    handleFilteredRecipes(matchedRecipes);
+    if (searchValue === "") {
+      handleFilteredRecipes(items);
+    } else {
+      //filter Recipes (searchField)
+      const matchedRecipes = items.filter((item) => {
+        const { label, dietLabels, cautions, healthLabels } = item.recipe;
+        return label.toLowerCase().includes(searchValue.toLowerCase());
+      });
+      //function call from App
+      handleFilteredRecipes(matchedRecipes);
+    }
   };
 
   return (
-    <>
-      <label>Search for a recipe:</label>
-      <TextInput changeFn={handleChange} w={200} mb={8} />
-    </>
+    <Center flexDir="column" gap={4} mt={8} mb={6}>
+      <Heading as="h2" size="xl">
+        Search for a recipe:
+      </Heading>
+      <TextInput changeFn={handleChange} w={200} />
+    </Center>
   );
 };
