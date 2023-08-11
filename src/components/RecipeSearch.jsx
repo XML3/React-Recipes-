@@ -2,7 +2,12 @@ import { useState } from "react";
 import { TextInput } from "./ui/TextInput";
 import { Center, Heading } from "@chakra-ui/react";
 
-export const RecipeSearch = ({ items, handleFilteredRecipes }) => {
+//Feedback from Winc: include the new `originalItems` passed in the RecipeSearch in App as prop.  This fixes the search bug
+export const RecipeSearch = ({
+  items,
+  handleFilteredRecipes,
+  originalItems,
+}) => {
   const [searchField, setSearchField] = useState("");
 
   const handleChange = (event) => {
@@ -10,7 +15,8 @@ export const RecipeSearch = ({ items, handleFilteredRecipes }) => {
     setSearchField(searchValue);
 
     if (searchValue === "") {
-      handleFilteredRecipes(items);
+      //feebback from Winc: Change item to originalItems, so it does not go back to the filterd items
+      handleFilteredRecipes(originalItems);
     } else {
       //filter Recipes (searchField)
       const matchedRecipes = items.filter((item) => {
