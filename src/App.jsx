@@ -29,6 +29,8 @@ export const App = () => {
             <RecipeSearch
               items={filteredRecipes}
               clickFn={setSelectedItem}
+              //feedback from Winc: fixing search bug, the following will bring the items back when back-spacing
+              originalItems={data.hits}
               handleFilteredRecipes={handleFilteredRecipes}
             />
             <RecipeListPage
