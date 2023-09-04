@@ -52,11 +52,12 @@ export const RecipePage = ({ item, clickFn }) => {
           <Card
             bgColor="whitesmoke"
             borderRadius="xl"
-            w={{ base: "90%", md: "3xl" }}
-            h="3xl"
+            w={{ base: "90%", md: "xl" }}
+            h="2xl"
+            mt={"3rem"}
           >
             <CardBody overflow="auto" m={3}>
-              <Image h="xl" w="100%" src={image} borderRadius="xl" />
+              <Image h="md" w="100%" src={image} borderRadius="xl" />
 
               <Box mt="6" spacing="3">
                 <Flex justifyContent="center">
