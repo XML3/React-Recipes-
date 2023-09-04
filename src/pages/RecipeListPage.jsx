@@ -8,7 +8,7 @@ export const RecipeListPage = ({ items, clickFn }) => {
   // Extracted data.hits and placed in recipes variable (testing)
   // const recipes = data.hits;
 
-  const columns = useBreakpointValue({ base: 1, sm: 2, md: 3, lg: 4 });
+  const columns = useBreakpointValue({ base: 1, sm: 2, md: 3, lg: 3 });
 
   return (
     <Box bgColor="gray.900" color="whitesmoke" minH="100vh">
