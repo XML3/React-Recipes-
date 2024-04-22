@@ -15,7 +15,7 @@ export const RecipeSearch = ({
     setSearchField(searchValue);
 
     if (searchValue === "") {
-      //feebback from Winc: Change item to originalItems, so it does not go back to the filterd items
+      //Change item to originalItems, so it does not go back to the filterd items
       handleFilteredRecipes(originalItems);
     } else {
       //filter Recipes (searchField)
