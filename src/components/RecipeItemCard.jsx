@@ -28,7 +28,7 @@ export const RecipeItemCard = ({ item, clickFn }) => {
       <Card
         bgColor="whitesmoke"
         borderRadius="xl"
-        w="sm"
+        w={{ base: "100%", sm: "100%", md: "sm" }}
         h="30rem"
         onClick={() => clickFn(item)}
         cursor="pointer"
@@ -36,10 +36,13 @@ export const RecipeItemCard = ({ item, clickFn }) => {
       >
         <CardBody>
           <Image h={64} w="sm" src={image} borderRadius="xl" alt={label} />
-          <Heading size="md" mt={4}>
+          <Heading size={{ base: "sm", sm: "sm", md: "md" }} mt={4}>
             {label}
           </Heading>
-          <Stack size="sm">
+          <Stack
+            size={{ base: "sm", sm: "xs", md: "sm" }}
+            fontSize={{ base: "16px", sm: "14px", md: "16px" }}
+          >
             <Flex gap={1} w={["full", "75%"]} flexWrap="wrap" flexDir="column">
               <a href={url} target="_blank" rel="noopener noreferrer">
                 View Recipe

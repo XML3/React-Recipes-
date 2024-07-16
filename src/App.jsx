@@ -37,7 +37,7 @@ export const App = () => {
         bgColor={"gray.900"}
         position={"relative"}
         top={{ base: "10px", sm: "50", md: "100px" }}
-        left={{ base: "25%", sm: "15%", md: "20%" }}
+        left={{ base: "25%", sm: "10%", md: "20%" }}
         mb={{ base: "1rem", sm: "1rem", md: 0 }}
       >
         <Image
@@ -61,7 +61,7 @@ export const App = () => {
           fontWeight={orbitronWeight.bold}
           fontSize={["3xl", "4xl", "6xl"]}
           position={"relative"}
-          left={{ base: "10%", sm: "25%", md: 0 }}
+          left={{ base: "10%", sm: "10%", md: 0 }}
         >
           {header}
         </Heading>
