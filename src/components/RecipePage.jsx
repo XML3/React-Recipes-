@@ -38,7 +38,7 @@ export const RecipePage = ({ item, clickFn }) => {
     CHOLE: totalNutrients.CHOLE,
     NA: totalNutrients.NA,
   };
-  //console.log(filteredTotalNutrients);
+
   return (
     <Center bgColor="gray.900" h="100vh" flexDirection="column">
       <Center>
