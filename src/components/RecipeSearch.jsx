@@ -39,12 +39,32 @@ export const RecipeSearch = ({
     }
   };
 
+  //FONT ORBITRON
+  const orbitronFontFamily = "Orbitron, sans-serif";
+  const orbitronWeight = {
+    fontWeights: {
+      normal: 400,
+      medium: 600,
+      semibold: 700,
+      bold: 900,
+    },
+  };
+
   return (
     <Center flexDir="column" gap={4} mt={8} mb={6}>
-      <Heading as="h2" size="xl">
+      <Heading
+        as="h2"
+        fontSize={{ base: "22px", sm: "24px", md: "36px" }}
+        fontFamily={orbitronFontFamily}
+        fontWeight={orbitronWeight.medium}
+      >
         Search for a recipe:
       </Heading>
-      <TextInput changeFn={handleChange} w={200} />
+      <TextInput
+        changeFn={handleChange}
+        w={{ base: 200, sm: 250, md: 400 }}
+        mb={{ base: "50px", sm: "75px", md: "100px" }}
+      />
     </Center>
   );
 };
