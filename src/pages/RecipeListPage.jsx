@@ -2,12 +2,6 @@ import { Box, Flex, SimpleGrid, useBreakpointValue } from "@chakra-ui/react";
 import { RecipeItemCard } from "../components/RecipeItemCard";
 
 export const RecipeListPage = ({ items, clickFn }) => {
-  // You can play around with the console log, but ultimately remove it once you are done
-  //console.log(data.hits[0].recipe.label);
-
-  // Extracted data.hits and placed in recipes variable (testing)
-  // const recipes = data.hits;
-
   const columns = useBreakpointValue({ base: 1, sm: 2, md: 3, lg: 3 });
 
   return (
