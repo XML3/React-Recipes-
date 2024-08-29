@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { TextInput } from "./ui/TextInput";
-import { Center, Heading } from "@chakra-ui/react";
+import { Box, Center, Heading } from "@chakra-ui/react";
 
 //Feedback from Winc: include the new `originalItems` passed in the RecipeSearch in App as prop.  This fixes the search bug
 export const RecipeSearch = ({
@@ -51,18 +51,19 @@ export const RecipeSearch = ({
   };
 
   return (
-    <Center flexDir="column" gap={4} mt={8} mb={6}>
+    <Center flexDir="column" gap={4} mt={8} mb={1}>
       <Heading
         as="h2"
-        fontSize={{ base: "22px", sm: "24px", md: "36px" }}
+        fontSize={{ base: "22px", sm: "24px", md: "20px" }}
         fontFamily={orbitronFontFamily}
-        fontWeight={orbitronWeight.medium}
+        fontWeight={orbitronWeight.normal}
+        letterSpacing={1.2}
       >
         Search for a recipe:
       </Heading>
       <TextInput
         changeFn={handleChange}
-        w={{ base: 200, sm: 250, md: 400 }}
+        w={{ base: 200, sm: 250, md: 300 }}
         mb={{ base: "50px", sm: "75px", md: "100px" }}
       />
     </Center>
