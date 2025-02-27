@@ -5,7 +5,7 @@ export const TextInput = ({ changeFn, ...props }) => {
     <Input
       ml={3}
       variant="outline"
-      focusBorderColor="pink.400"
+      focusBorderColor="#e84213"
       onChange={changeFn}
       {...props}
     />

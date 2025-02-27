@@ -15,7 +15,7 @@ export const RecipeSearch = ({
     setSearchField(searchValue);
 
     if (searchValue === "") {
-      //Change item to originalItems, so it does not go back to the filterd items
+      //Change item to originalItems, to avoid going back to filterd items
       handleFilteredRecipes(originalItems);
     } else {
       //filter Recipes (searchField)
@@ -41,30 +41,28 @@ export const RecipeSearch = ({
 
   //FONT ORBITRON
   const orbitronFontFamily = "Orbitron, sans-serif";
-  const orbitronWeight = {
-    fontWeights: {
-      normal: 400,
-      medium: 600,
-      semibold: 700,
-      bold: 900,
-    },
-  };
+  const robotoSlabFont = "Roboto Slab, serif";
 
   return (
-    <Center flexDir="column" gap={4} mt={8} mb={1}>
+    <Center flexDir="column" gap={4} mt={"5rem"} mb={1}>
       <Heading
         as="h2"
-        fontSize={{ base: "22px", sm: "24px", md: "20px" }}
+        fontSize={{ base: "16px", sm: "24px", md: "30px" }}
         fontFamily={orbitronFontFamily}
-        fontWeight={orbitronWeight.normal}
+        fontWeight={500}
         letterSpacing={1.2}
+        color={"gray.900"}
       >
         Search for a recipe:
       </Heading>
       <TextInput
         changeFn={handleChange}
-        w={{ base: 200, sm: 250, md: 300 }}
+        w={{ base: "95%", sm: "85vw", md: "50vw" }}
+        h={{ base: "3.3vh", sm: "4vh", md: "5vh" }}
         mb={{ base: "50px", sm: "75px", md: "100px" }}
+        borderColor={"#0f0f0f"}
+        fontFamily={robotoSlabFont}
+        placeHolder={"Search for recipes here..."}
       />
     </Center>
   );

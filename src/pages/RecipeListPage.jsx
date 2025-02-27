@@ -5,11 +5,17 @@ export const RecipeListPage = ({ items, clickFn }) => {
   const columns = useBreakpointValue({ base: 1, sm: 2, md: 3, lg: 3 });
 
   return (
-    <Box bgColor="gray.900" color="whitesmoke" minH="100vh">
+    <Box
+      bgColor="gray.900"
+      color="whitesmoke"
+      minH="100vh"
+      maxW={{ base: "100%", sm: "100%", md: "80%" }}
+      mb={20}
+    >
       <Flex align="center" justify="center" minH="100vh">
         {/* <Heading fontSize={"6xl"}>Recipe Checker</Heading> */}
 
-        <SimpleGrid columns={columns} gap={8}>
+        <SimpleGrid columns={columns} gap={0}>
           {/* Mapped throught recipe object as the "item" prop for RecipeItemCard and used unique Key prop for each recipe item (index or recipe URL) */}
           {items.map((item) => (
             <RecipeItemCard

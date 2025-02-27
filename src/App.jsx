@@ -4,96 +4,129 @@ import { data } from "./utils/data";
 import { useState } from "react";
 import { RecipePage } from "./components/RecipePage";
 import { Box, Center, Flex, Heading, Image } from "@chakra-ui/react";
-import recipe from "/img/recipe_bowl.png";
+import { Navigation } from "./components/Navigation";
 
 export const App = () => {
   const header = "Recipe Checker";
+  const recipeImage = "./img/recipe_home.jpg";
+
   // Your state code here
   const [selectedItem, setSelectedItem] = useState();
   //new state for filtered recipes
   const [filteredRecipes, setFilteredRecipes] = useState(data.hits);
 
+  const [isHomePage, setIsHomePage] = useState(true);
+
   // handle filter recipe from RecipeSearch
   const handleFilteredRecipes = (recipes) => {
     setFilteredRecipes(recipes);
+    setIsHomePage(false);
+  };
+
+  const handlleSelectedRecipes = (recipe) => {
+    setSelectedItem(recipe);
+    setIsHomePage(false);
+  };
+
+  const handleBackToHome = () => {
+    setSelectedItem(null);
+    setIsHomePage(true);
   };
 
   //FONT ORBITRON
   const orbitronFontFamily = "Orbitron, sans-serif";
-  const orbitronWeight = {
-    fontWeights: {
-      normal: 400,
-      medium: 600,
-      semibold: 700,
-      bold: 900,
-    },
-  };
+  const robotoSlabFont = "Roboto Slab, serif";
 
   return (
-    <Box bgColor={"gray.900"} w={"100%"} h={"100%"}>
-      <Box w={"100%"} h={"auto"}>
-        <Flex
-          flexDir="column"
-          align={"center"}
-          justifyContent={"center"}
-          gap={{ base: 3, sm: 8, md: 12 }}
-          mb={{ base: "1rem", sm: "1rem", md: 0 }}
-        >
+    <Box bgColor={"whitesmoke"} w={"100%"} h={"100%"}>
+      <Navigation />
+      <Box
+        w={"100%"}
+        // bgColor={"gray.900"}
+        display={"flex"}
+        align={"flex-end"}
+        justifyContent={"center"}
+      >
+        <Flex display={"flex"} align={"flex-end"} justifyContent={"flex-start"}>
           <Image
-            src={recipe}
-            alt="wisk and bowl"
-            w={{ base: "75px", sm: "100px", md: "150px" }}
-            h={"auto"}
-            mt={"2rem"}
+            src={recipeImage}
+            objectFit={"cover"}
+            alt="image of kitchen counter"
+            minWidth={"100%"}
+            maxH={{ base: "100%", sm: "100%", md: "80vh", "2xl": "85vh" }}
+            position="relative"
+            top={{ base: 0, sm: 0, md: 0, "2xl": "1%" }}
+            p={{ base: 2, sm: 4, md: 6, "2xl": 0 }}
+            py={{ "2xl": 2 }}
+            borderTop="25px solid #0f0f0f"
+            borderBottom="10px solid #0f0f0f"
+
+            // mixBlendMode={"exclusion"}
           />
+
           <Heading
             as="h1"
             fontFamily={orbitronFontFamily}
-            fontWeight={orbitronWeight.bold}
-            fontSize={["3xl", "4xl", "6xl"]}
+            fontWeight={900}
+            fontSize={["28px", "4xl", "100px"]}
             position={"relative"}
-            left={{ base: "25%", sm: 0, md: 0 }}
-            color={"whitesmoke"}
+            right={"90%"}
+            bottom={{ base: "0.5rem", sm: "1.5rem", md: "3rem" }}
+            bg="rgba(0, 0, 0, 0.02)"
+            color={"gray.900"}
+            zIndex={100}
           >
             {header}
           </Heading>
         </Flex>
       </Box>
 
+      {isHomePage && (
+        <Box textAlign="center" maxW="80%" mx="auto" mb={2}>
+          <Heading
+            as="h1"
+            fontSize={{ base: "20px", sm: "28px", md: "36px" }}
+            fontFamily="Orbitron, sans-serif"
+            fontWeight={600}
+            letterSpacing={1.5}
+            color="gray.900"
+            mb={2}
+            mt={"4rem"}
+          >
+            Find Your Perfect Recipe
+          </Heading>
+          <Box
+            fontSize={{ base: "14px", sm: "16px", md: "18px" }}
+            color="gray.700"
+            fontFamily={robotoSlabFont}
+          >
+            Looking for something delicious? Search by name, diet type, health
+            benefits, or ingredients to discover the perfect recipe for any
+            occasion.
+          </Box>
+        </Box>
+      )}
+
       <Box>
         <Center
           w={"100%"}
-          h="150hv"
           flexDir="column"
-          bgColor="gray.900"
-          color="whitesmoke"
+          bgColor="whitesmoke"
+          color="gray.900"
         >
-          {/* <Heading
-            as="h1"
-            fontFamily={orbitronFontFamily}
-            fontWeight={orbitronWeight.bold}
-            fontSize={["3xl", "4xl", "6xl"]}
-            position={"relative"}
-            left={{ base: "10%", sm: "10%", md: 0 }}
-            mt={"2rem"}
-          >
-            {header}
-          </Heading> */}
-
           {selectedItem ? (
-            <RecipePage item={selectedItem} clickFn={setSelectedItem} />
+            <RecipePage item={selectedItem} clickFn={handleBackToHome} />
           ) : (
             <>
               <RecipeSearch
                 items={filteredRecipes}
-                clickFn={setSelectedItem}
-                //feedback from Winc: fixing search bug, the following will bring the items back when back-spacing
+                clickFn={handlleSelectedRecipes}
                 originalItems={data.hits}
                 handleFilteredRecipes={handleFilteredRecipes}
               />
               <RecipeListPage
                 selectedItem={selectedItem}
-                clickFn={setSelectedItem}
+                clickFn={handlleSelectedRecipes}
                 items={filteredRecipes}
               />
             </>
