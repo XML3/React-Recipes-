@@ -38,32 +38,38 @@ export const RecipePage = ({ item, clickFn }) => {
     CHOLE: totalNutrients.CHOLE,
     NA: totalNutrients.NA,
   };
+  const bebasFont = "Bebas Neue, sans-serif";
 
   return (
-    <Center bgColor="gray.900" h="150vh" flexDirection="column" minW={"100%"}>
-      <Box
-        position={"relative"}
-        bottom={{ base: "19%", sm: "20%", md: "8%", "2xl": "7.8%" }}
-        borderTop={"15px solid whitesmoke"}
-        w={"100%"}
-      ></Box>
-      <Center>
+    <Center
+      bgColor="whitesmoke"
+      h={{ base: "100vh", sm: "110vh", md: "160vh", "2xl": "180vh" }}
+      flexDirection="column"
+      minW={"100%"}
+    >
+      <Center border={"1px solid #0f0f0f"} p={{ base: 0, sm: 2 }}>
         <Flex
           bgColor="gray.900"
           justifyContent="center"
           alignItems="center"
           h="100%"
-          w={{ base: "100%", "2xl": "75%" }}
+          w={{ base: "100%", md: "100%", "2xl": "100%" }}
+          px={{ base: 0, sm: 0, md: 0, "2xl": "300px" }}
+          paddingTop={{ base: "50px", sm: "80px", md: "70px" }}
+          paddingBottom={{ base: "90px", sm: "100px", md: "100px" }}
         >
           <Card
             bgColor="whitesmoke"
             borderRadius="xl"
-            w={{ base: "90%", sm: "70%", md: "60%", "2xl": "50%" }}
+            w={{ base: "90%", sm: "70%", md: "60%", "2xl": "100%" }}
             h={{ base: "80vh", sm: "80vh", md: "80%" }}
-            position={"relative"}
-            bottom={{ base: "22%", sm: "20%", md: "10%", "2xl": "3%" }}
           >
-            <CardBody overflow="auto" m={3}>
+            <CardBody
+              overflow="auto"
+              m={3}
+              w={{ base: "90%", sm: "100%", md: "95%", "2xl": "600px" }}
+              h={{ base: "80vh", sm: "80vh", md: "80%" }}
+            >
               <Flex align={"center"} justifyContent={"center"}>
                 <Image
                   objectFit={"cover"}
@@ -99,6 +105,7 @@ export const RecipePage = ({ item, clickFn }) => {
                       "2xl": "32px",
                     }}
                     fontWeight={800}
+                    fontFamily={bebasFont}
                   >
                     {label}
                   </Heading>
@@ -268,13 +275,14 @@ export const RecipePage = ({ item, clickFn }) => {
       </Center>
       <Button
         position={"relative"}
-        bottom={{ base: "9%", sm: 0, md: "12%", "2xl": "7%" }}
+        bottom={{ base: "6%", sm: "8%", md: "12%", "2xl": "7%" }}
+        fontSize={{ base: "14px", sm: "14px", md: "16px" }}
         w="fit-content"
         bgColor="#D4A759"
         color="gray.900"
         onClick={() => clickFn()}
       >
-        Back to Recipe Home Page
+        Back to Home Page
       </Button>
     </Center>
   );

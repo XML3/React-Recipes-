@@ -20,6 +20,8 @@ export const RecipeItemCard = ({ item, clickFn }) => {
     healthLabels,
   } = item.recipe;
 
+  const bebasFont = "Bebas Neue, sans-serif";
+
   const isVegetarian = healthLabels.includes("Vegetarian");
   const isVegan = healthLabels.includes("Vegan");
 
@@ -48,7 +50,12 @@ export const RecipeItemCard = ({ item, clickFn }) => {
                 alt={label}
               />
             </Flex>
-            <Heading size={{ base: "xs", sm: "14px", md: "xs" }} mt={4} mb={4}>
+            <Heading
+              size={{ base: "xs", sm: "14px", md: "xs" }}
+              mt={4}
+              mb={4}
+              fontFamily={bebasFont}
+            >
               {label}
             </Heading>
             <Stack

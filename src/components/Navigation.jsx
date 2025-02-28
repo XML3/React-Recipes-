@@ -1,9 +1,9 @@
 import React from "react";
-import { Box, Flex, Image } from "@chakra-ui/react";
+import { Box, Flex, Image, Button } from "@chakra-ui/react";
 
-export const Navigation = () => {
-  const orbitronFontFamily = "Orbitron, sans-serif";
+export const Navigation = ({ clickFn }) => {
   const recipe = "/img/recipe2.svg";
+
   return (
     <>
       <Box
@@ -25,12 +25,14 @@ export const Navigation = () => {
           right={{ base: 0, sm: 0 }}
         >
           {/* LOGO Section */}
-          <Box
+          <Button
+            onClick={clickFn}
             mb={{ base: 0, sm: 0, md: 0 }}
             position={"relative"}
             left={{ base: "0rem", sm: 0, md: "-2%", "2xl": "0%" }}
             display={"flex"}
             justifyContent={"start"}
+            variant="unstyled"
           >
             {" "}
             <Image
@@ -40,7 +42,7 @@ export const Navigation = () => {
               alt="logo"
               _hover={{ transform: "scale(1.08)" }}
             />
-          </Box>
+          </Button>
         </Flex>
       </Box>
     </>

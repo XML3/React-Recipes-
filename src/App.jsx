@@ -3,7 +3,16 @@ import { RecipeSearch } from "./components/RecipeSearch";
 import { data } from "./utils/data";
 import { useState } from "react";
 import { RecipePage } from "./components/RecipePage";
-import { Box, Center, Flex, Heading, Image } from "@chakra-ui/react";
+
+import {
+  Box,
+  Button,
+  Center,
+  Flex,
+  Heading,
+  Image,
+  Text,
+} from "@chakra-ui/react";
 import { Navigation } from "./components/Navigation";
 
 export const App = () => {
@@ -14,7 +23,6 @@ export const App = () => {
   const [selectedItem, setSelectedItem] = useState();
   //new state for filtered recipes
   const [filteredRecipes, setFilteredRecipes] = useState(data.hits);
-
   const [isHomePage, setIsHomePage] = useState(true);
 
   // handle filter recipe from RecipeSearch
@@ -33,26 +41,54 @@ export const App = () => {
     setIsHomePage(true);
   };
 
+  //Random Recipe
+  const handleRandomRecipe = () => {
+    if (filteredRecipes.length === 0) return;
+
+    const randomIndex = Math.floor(Math.random() * filteredRecipes.length);
+    setSelectedItem(filteredRecipes[randomIndex]);
+    setIsHomePage(false);
+  };
+  //Only random Vegan or Vegetarian
+  const handleRandomRecipeByLabel = () => {
+    const filteredByLabel = filteredRecipes.filter((item) => {
+      const healthLabels = item.recipe.healthLabels || [];
+      return (
+        healthLabels.some((label) => label.toLowerCase() === "vegan") ||
+        healthLabels.some((label) => label.toLowerCase() === "vegetarian")
+      );
+    });
+
+    if (filteredByLabel.length === 0) {
+      console.log("No recipe found with Vegan or Vegetarian labels");
+    }
+
+    const randomIndex = Math.floor(Math.random() * filteredByLabel.length);
+    setSelectedItem(filteredByLabel[randomIndex]);
+    setIsHomePage(false);
+  };
+
   //FONT ORBITRON
   const orbitronFontFamily = "Orbitron, sans-serif";
   const robotoSlabFont = "Roboto Slab, serif";
+  const bebasFont = "Bebas Neue, sans-serif";
 
   return (
     <Box bgColor={"whitesmoke"} w={"100%"} h={"100%"}>
-      <Navigation />
+      <Navigation clickFn={handleBackToHome} />
       <Box
         w={"100%"}
-        // bgColor={"gray.900"}
         display={"flex"}
-        align={"flex-end"}
+        align={"flex-start"}
         justifyContent={"center"}
+        position={"relative"}
       >
-        <Flex display={"flex"} align={"flex-end"} justifyContent={"flex-start"}>
+        <Flex>
           <Image
             src={recipeImage}
             objectFit={"cover"}
             alt="image of kitchen counter"
-            minWidth={"100%"}
+            minWidth={"99vw"}
             maxH={{ base: "100%", sm: "100%", md: "80vh", "2xl": "85vh" }}
             position="relative"
             top={{ base: 0, sm: 0, md: 0, "2xl": "1%" }}
@@ -60,24 +96,101 @@ export const App = () => {
             py={{ "2xl": 2 }}
             borderTop="25px solid #0f0f0f"
             borderBottom="10px solid #0f0f0f"
-
-            // mixBlendMode={"exclusion"}
           />
 
           <Heading
             as="h1"
             fontFamily={orbitronFontFamily}
-            fontWeight={900}
-            fontSize={["28px", "4xl", "100px"]}
-            position={"relative"}
-            right={"90%"}
-            bottom={{ base: "0.5rem", sm: "1.5rem", md: "3rem" }}
+            fontWeight={600}
+            fontSize={["28px", "4xl", "90px"]}
+            w={{ base: "45%", "2xl": "30%" }}
+            position={"absolute"}
+            top={{ base: "17%", sm: "15%", md: "35%", "2xl": "45%" }}
+            left={{ base: "41%", "2xl": "30%" }}
+            transform={"translateX(-80%)"}
             bg="rgba(0, 0, 0, 0.02)"
-            color={"gray.900"}
             zIndex={100}
+            color={"gray.900"}
           >
             {header}
           </Heading>
+          <Box
+            w={"20%"}
+            maxWidth={"300px"}
+            position={"absolute"}
+            top={{ base: 0, sm: "50%", md: "65%", "2xl": "75%" }}
+            left={"30%"}
+            transform={"translate(-60%, -10%)"}
+            bg="rgba(0, 0, 0, 0.02)"
+            minWidth={"40%"}
+            textAlign={"flex-start"}
+          >
+            <Text
+              fontFamily={robotoSlabFont}
+              fontWeight={400}
+              fontSize={{
+                base: "0px",
+                sm: "12px",
+                md: "16px",
+                "2xl": "18px",
+              }}
+              color={"gray.900"}
+              sx={{ textShadow: "0.5px 0.5px 1px gray" }}
+            >
+              {" "}
+              Staring at your kitchen, unsure what to cook? Not sure if you want
+              something comforting or adventurous? No worries – let us surprise
+              you with a random recipe and take the guesswork out of dinner
+              tonight. Ready for a culinary adventure? Let’s get cooking!
+            </Text>
+          </Box>
+          {/* RANDOM RECIPES */}
+
+          <Button
+            fontSize={{ base: "12px", sm: "14px", md: "18px", "2xl": "16px" }}
+            fontFamily={bebasFont}
+            fontWeight={400}
+            position={"absolute"}
+            top={{ base: "70%", sm: "80%", md: "85%", "2xl": "90%" }}
+            left={{ base: "38%", sm: "31%", md: "23%", "2xl": "18%" }}
+            transform={"translate(-90%, -20%)"}
+            color={"#0f0f0f"}
+            px={{ base: "15px", sm: "50px", "2xl": "70px" }}
+            py={{ base: "5px", sm: "3px", "2xl": "20px" }}
+            onClick={handleRandomRecipe}
+            bgColor="#D83F14"
+            zIndex={100}
+            _hover={{
+              color: "#0f0f0f",
+              bgColor: "transparent",
+              border: "2px solid #0f0f0f",
+            }}
+          >
+            SURPRISE ME!
+          </Button>
+          <Button
+            fontSize={{ base: "12px", sm: "14px", md: "18px", "2xl": "16px" }}
+            fontFamily={bebasFont}
+            fontWeight={400}
+            position={"absolute"}
+            top={{ base: "70%", sm: "80%", md: "85%", "2xl": "90%" }}
+            left={{ base: "90%", sm: "64.5%", md: "46%", "2xl": "34%" }}
+            transform={"translate(-90%, -20%)"}
+            color={"#0f0f0f"}
+            px={{ base: "15px", sm: "50px", "2xl": "70px" }}
+            py={{ base: "5px", sm: "3px", "2xl": "20px" }}
+            onClick={handleRandomRecipeByLabel}
+            bgColor="#A5B58A"
+            border="2px solid #0f0f0f"
+            zIndex={100}
+            _hover={{
+              color: "#0f0f0f",
+              bgColor: "transparent",
+              border: "2px solid #0f0f0f",
+            }}
+          >
+            VEGGIE SURPRISE!
+          </Button>
         </Flex>
       </Box>
 

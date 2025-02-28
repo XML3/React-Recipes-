@@ -62,7 +62,7 @@ export const RecipeSearch = ({
         mb={{ base: "50px", sm: "75px", md: "100px" }}
         borderColor={"#0f0f0f"}
         fontFamily={robotoSlabFont}
-        placeHolder={"Search for recipes here..."}
+        placeholder={"Search for recipes here..."}
       />
     </Center>
   );
