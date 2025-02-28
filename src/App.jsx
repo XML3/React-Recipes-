@@ -3,7 +3,8 @@ import { RecipeSearch } from "./components/RecipeSearch";
 import { data } from "./utils/data";
 import { useState } from "react";
 import { RecipePage } from "./components/RecipePage";
-
+import { Navigation } from "./components/Navigation";
+import { NavigationFooter } from "./components/NavigationFooter";
 import {
   Box,
   Button,
@@ -13,7 +14,6 @@ import {
   Image,
   Text,
 } from "@chakra-ui/react";
-import { Navigation } from "./components/Navigation";
 
 export const App = () => {
   const header = "Recipe Checker";
@@ -246,6 +246,7 @@ export const App = () => {
           )}
         </Center>
       </Box>
+      <NavigationFooter />
     </Box>
   );
 };
