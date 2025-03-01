@@ -32,7 +32,8 @@ export const RecipeItemCard = ({ item, clickFn }) => {
           bgColor="whitesmoke"
           borderRadius="xl"
           w={{ base: "90%", sm: "95%", md: "90%", "2xl": "90%" }}
-          h="100%"
+          h="60vh"
+          // minH={"10vh"}
           onClick={() => clickFn(item)}
           cursor="pointer"
           _hover={{ transform: "scale(1.01)" }}

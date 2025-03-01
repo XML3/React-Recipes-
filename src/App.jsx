@@ -132,6 +132,7 @@ export const App = () => {
                 base: "0px",
                 sm: "12px",
                 md: "16px",
+                lg: "16px",
                 "2xl": "18px",
               }}
               color={"gray.900"}
@@ -152,7 +153,14 @@ export const App = () => {
             fontWeight={400}
             position={"absolute"}
             top={{ base: "70%", sm: "80%", md: "85%", "2xl": "90%" }}
-            left={{ base: "38%", sm: "31%", md: "23%", "2xl": "18%" }}
+            left={{
+              base: "32%",
+              sm: "34%",
+              md: "25% ",
+              lg: "22%",
+              xl: "18%",
+              "2xl": "18%",
+            }}
             transform={"translate(-90%, -20%)"}
             color={"#0f0f0f"}
             px={{ base: "15px", sm: "50px", "2xl": "70px" }}
@@ -174,14 +182,21 @@ export const App = () => {
             fontWeight={400}
             position={"absolute"}
             top={{ base: "70%", sm: "80%", md: "85%", "2xl": "90%" }}
-            left={{ base: "90%", sm: "64.5%", md: "46%", "2xl": "34%" }}
+            left={{
+              base: "90%",
+              sm: "72%",
+              md: "51.5%",
+              lg: "44%",
+              xl: "35.5%",
+              "2xl": "34%",
+            }}
             transform={"translate(-90%, -20%)"}
             color={"#0f0f0f"}
             px={{ base: "15px", sm: "50px", "2xl": "70px" }}
             py={{ base: "5px", sm: "3px", "2xl": "20px" }}
             onClick={handleRandomRecipeByLabel}
             bgColor="#A5B58A"
-            border="2px solid #0f0f0f"
+            border="1px solid #0f0f0f"
             zIndex={100}
             _hover={{
               color: "#0f0f0f",

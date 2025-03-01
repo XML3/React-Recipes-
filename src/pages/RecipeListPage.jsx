@@ -14,8 +14,6 @@ export const RecipeListPage = ({ items, clickFn }) => {
     >
       <Box bgColor="gray.900" color="whitesmoke" minH="80vh">
         <Flex align="center" justify="center" minH="80vh">
-          {/* <Heading fontSize={"6xl"}>Recipe Checker</Heading> */}
-
           {/* <SimpleGrid columns={columns} gap={0}> */}
           {/* Mapped throught recipe object as the "item" prop for RecipeItemCard and used unique Key prop for each recipe item (index or recipe URL) */}
           {/* {items.map((item) => (

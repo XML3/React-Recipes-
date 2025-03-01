@@ -67,7 +67,7 @@ export const RecipePage = ({ item, clickFn }) => {
             <CardBody
               overflow="auto"
               m={3}
-              w={{ base: "90%", sm: "100%", md: "95%", "2xl": "600px" }}
+              w={{ base: "90%", sm: "100%", md: "95%", "2xl": "620px" }}
               h={{ base: "80vh", sm: "80vh", md: "80%" }}
             >
               <Flex align={"center"} justifyContent={"center"}>
@@ -281,6 +281,11 @@ export const RecipePage = ({ item, clickFn }) => {
         bgColor="#D4A759"
         color="gray.900"
         onClick={() => clickFn()}
+        _hover={{
+          color: "Whitesmoke",
+          bgColor: "transparent",
+          border: "1px solid whitesmoke",
+        }}
       >
         Back to Home Page
       </Button>

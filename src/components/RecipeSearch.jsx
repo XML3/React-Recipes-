@@ -58,7 +58,7 @@ export const RecipeSearch = ({
       <TextInput
         changeFn={handleChange}
         w={{ base: "95%", sm: "85vw", md: "50vw" }}
-        h={{ base: "3.3vh", sm: "4vh", md: "5vh" }}
+        h={{ base: "4vh", sm: "4.5vh", md: "5vh" }}
         mb={{ base: "50px", sm: "75px", md: "100px" }}
         borderColor={"#0f0f0f"}
         fontFamily={robotoSlabFont}
