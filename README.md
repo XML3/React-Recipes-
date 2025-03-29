@@ -2,7 +2,7 @@
 A simple front-end React.js project designed to elevate your culinary journey by helping users explore recipes that fit their specific dietary needs and preferences.
 
 
-![Uploading recipes.png…]()
+![Image](https://github.com/user-attachments/assets/dee75a4a-70b7-4d93-a29f-ce4363b445dd)
 
 ## Features
 Search Recipes: Users can search for recipes by keywords and apply dietary preferences such as labels, diet labels, cautions, and health labels.
