@@ -8,4 +8,4 @@ The project incorporates color-coded sections on recipe cards to denote whether 
 A culinary adventure created with an intuitive React.js project, crafted to cater to dietary needs and preferences
 
 
-![recipechecker](https://github.com/user-attachments/assets/1c17a42d-4eaa-4b86-aa9f-a99b7c4a52fc)
+
