@@ -33,6 +33,9 @@ The Random Recipe Button delivers a random recipe, broadening the users' culinar
 
 The Random Vegetarian/Vegan Recipe Button focuses on delivering recipes suitable for specific diets, helping users easily find meals that fit their dietary restrictions.
 
+Visit Demo here:
+https://tastyrecipechecker.netlify.app
+
 ## Getting Started
 Prerequisites
 Node.js and npm should be installed on your machine to run the project locally.
