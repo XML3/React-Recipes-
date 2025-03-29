@@ -1,7 +1,7 @@
 # Recipe Checker with React.js
 A simple front-end React.js project designed to elevate your culinary journey by helping users explore recipes that fit their specific dietary needs and preferences.
 
-<img src="https://i.ibb.co/HLCG8065/recipes.png" alt="Recipe Checker App" width="100%" height="auto" />
+![Recipe Checker App](https://i.ibb.co/HLCG8065/recipes.png)
 
 ## Features
 Search Recipes: Users can search for recipes by keywords and apply dietary preferences such as labels, diet labels, cautions, and health labels.
