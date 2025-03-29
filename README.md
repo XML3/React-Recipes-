@@ -61,8 +61,6 @@ components/: Contains reusable components such as recipe cards, search bars, and
 pages/: Contains different pages (such as the main recipe page).
 
 
-
-
-
+![Recipe Checker App](https://i.ibb.co/HLCG8065/recipes.png)
 
 
