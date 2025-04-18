@@ -13,6 +13,7 @@ import {
   Heading,
   Image,
   Text,
+  useBreakpoint,
 } from "@chakra-ui/react";
 
 export const App = () => {
@@ -99,15 +100,19 @@ export const App = () => {
           />
 
           <Heading
+            display={"flex"}
+            flexDir={"row"}
+            flexWrap={"wrap"}
+            textAlign={"left"}
+            justifyContent={"flex-start"}
             as="h1"
             fontFamily={orbitronFontFamily}
             fontWeight={600}
             fontSize={["28px", "4xl", "90px"]}
-            w={{ base: "45%", "2xl": "30%" }}
+            w={{ base: "45%", sm: "40%", md: "45%", "2xl": "30%" }}
             position={"absolute"}
-            top={{ base: "17%", sm: "15%", md: "35%", "2xl": "45%" }}
-            left={{ base: "41%", "2xl": "30%" }}
-            transform={"translateX(-80%)"}
+            top={{ base: "17%", sm: "35%", md: "38%", lg: "42%", xl: "42%" }}
+            left={{ base: "4%", sm: "5%", md: "6%", lg: "6%", xl: "5.5%" }}
             bg="rgba(0, 0, 0, 0.02)"
             zIndex={100}
             color={"gray.900"}
@@ -115,14 +120,14 @@ export const App = () => {
             {header}
           </Heading>
           <Box
-            w={"20%"}
-            maxWidth={"300px"}
+            display={"flex"}
+            flexDir={"row"}
+            flexWrap={"wrap"}
+            w={{ base: 0, sm: "70%", md: "100%" }}
+            maxWidth={{ base: 0, sm: "400px", md: "500px" }}
             position={"absolute"}
-            top={{ base: 0, sm: "50%", md: "65%", "2xl": "75%" }}
-            left={"30%"}
-            transform={"translate(-60%, -10%)"}
-            bg="rgba(0, 0, 0, 0.02)"
-            minWidth={"40%"}
+            top={{ base: "50%", sm: "60%", md: "70%", lg: "70%", xl: "70%" }}
+            left={{ base: "4%", sm: "5%", md: "6.5%", lg: "6%", xl: "6%" }}
             textAlign={"flex-start"}
           >
             <Text
@@ -145,67 +150,62 @@ export const App = () => {
               tonight. Ready for a culinary adventure? Let’s get cooking!
             </Text>
           </Box>
-          {/* RANDOM RECIPES */}
-
-          <Button
-            fontSize={{ base: "12px", sm: "14px", md: "18px", "2xl": "16px" }}
-            fontFamily={bebasFont}
-            fontWeight={400}
+          {/* RANDOM RECIPES Buttons*/}
+          <Flex
+            display={"flex"}
+            flexDir={"row"}
+            justifyContent={"start"}
+            alignContent={"center"}
+            alignItems={"center"}
+            width={{ base: "90%", sm: "70%", md: "70%", lg: "70%", xl: "70%" }}
             position={"absolute"}
-            top={{ base: "70%", sm: "80%", md: "85%", "2xl": "90%" }}
-            left={{
-              base: "32%",
-              sm: "34%",
-              md: "25% ",
-              lg: "22%",
-              xl: "18%",
-              "2xl": "18%",
-            }}
-            transform={"translate(-90%, -20%)"}
-            color={"#0f0f0f"}
-            px={{ base: "15px", sm: "50px", "2xl": "70px" }}
-            py={{ base: "5px", sm: "3px", "2xl": "20px" }}
-            onClick={handleRandomRecipe}
-            bgColor="#D83F14"
             zIndex={100}
-            _hover={{
-              color: "#0f0f0f",
-              bgColor: "transparent",
-              border: "2px solid #0f0f0f",
+            top={{ base: "72%", sm: "81%", md: "86%", lg: "85%", "2xl": "90%" }}
+            left={{ base: "4%", sm: "5%", md: "6%", lg: "6%", xl: "6%" }}
+            gap={{
+              base: "55px",
+              sm: "40px",
+              md: "50px",
+              lg: "60px",
+              xl: "60px",
             }}
           >
-            SURPRISE ME!
-          </Button>
-          <Button
-            fontSize={{ base: "12px", sm: "14px", md: "18px", "2xl": "16px" }}
-            fontFamily={bebasFont}
-            fontWeight={400}
-            position={"absolute"}
-            top={{ base: "70%", sm: "80%", md: "85%", "2xl": "90%" }}
-            left={{
-              base: "90%",
-              sm: "72%",
-              md: "51.5%",
-              lg: "44%",
-              xl: "35.5%",
-              "2xl": "34%",
-            }}
-            transform={"translate(-90%, -20%)"}
-            color={"#0f0f0f"}
-            px={{ base: "15px", sm: "50px", "2xl": "70px" }}
-            py={{ base: "5px", sm: "3px", "2xl": "20px" }}
-            onClick={handleRandomRecipeByLabel}
-            bgColor="#A5B58A"
-            border="1px solid #0f0f0f"
-            zIndex={100}
-            _hover={{
-              color: "#0f0f0f",
-              bgColor: "transparent",
-              border: "2px solid #0f0f0f",
-            }}
-          >
-            VEGGIE SURPRISE!
-          </Button>
+            <Button
+              fontSize={{ base: "12px", sm: "14px", md: "18px", "2xl": "16px" }}
+              fontFamily={bebasFont}
+              fontWeight={400}
+              color={"#0f0f0f"}
+              px={{ base: "30px", sm: "50px", "2xl": "70px" }}
+              py={{ base: "5px", sm: "3px", "2xl": "20px" }}
+              onClick={handleRandomRecipe}
+              bgColor="#D83F14"
+              _hover={{
+                color: "#0f0f0f",
+                bgColor: "transparent",
+                border: "2px solid #0f0f0f",
+              }}
+            >
+              SURPRISE ME!
+            </Button>
+            <Button
+              fontSize={{ base: "12px", sm: "14px", md: "18px", "2xl": "16px" }}
+              fontFamily={bebasFont}
+              fontWeight={400}
+              color={"#0f0f0f"}
+              px={{ base: "20px", sm: "50px", "2xl": "70px" }}
+              py={{ base: "5px", sm: "3px", "2xl": "20px" }}
+              onClick={handleRandomRecipeByLabel}
+              bgColor="#A5B58A"
+              border="1px solid #0f0f0f"
+              _hover={{
+                color: "#0f0f0f",
+                bgColor: "transparent",
+                border: "2px solid #0f0f0f",
+              }}
+            >
+              VEGGIE SURPRISE!
+            </Button>
+          </Flex>
         </Flex>
       </Box>
 
