@@ -90,7 +90,7 @@ export const App = () => {
             objectFit={"cover"}
             alt="image of kitchen counter"
             minWidth={"99vw"}
-            maxH={{ base: "100%", sm: "100%", md: "80vh", "2xl": "85vh" }}
+            maxH={{ base: "100%", sm: "100%", md: "100%", xl: "85vh" }}
             position="relative"
             top={{ base: 0, sm: 0, md: 0, "2xl": "1%" }}
             p={{ base: 2, sm: 4, md: 6, "2xl": 0 }}
