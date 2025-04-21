@@ -43,16 +43,25 @@ export const RecipePage = ({ item, clickFn }) => {
   return (
     <Center
       bgColor="whitesmoke"
-      h={{ base: "100vh", sm: "110vh", md: "160vh", "2xl": "180vh" }}
+      h={{ base: "100vh", sm: "110vh", md: "160vh", xl: "180vh" }}
       flexDirection="column"
       minW={"100%"}
     >
-      <Center border={"1px solid #0f0f0f"} p={{ base: 0, sm: 2 }}>
+      <Center
+        border={"1px solid #0f0f0f"}
+        p={{ base: 0, sm: 2 }}
+        display={"flex"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        position={"relative"}
+        bottom={{ base: 0, sm: 0, md: 0, lg: "10%", xl: "15%" }}
+      >
         <Flex
           bgColor="gray.900"
           justifyContent="center"
           alignItems="center"
-          h="100%"
+          flexDirection={"column"}
+          h="100vh"
           w={{ base: "100%", md: "100%", "2xl": "100%" }}
           px={{ base: 0, sm: 0, md: 0, "2xl": "300px" }}
           paddingTop={{ base: "50px", sm: "80px", md: "70px" }}
@@ -62,7 +71,7 @@ export const RecipePage = ({ item, clickFn }) => {
             bgColor="whitesmoke"
             borderRadius="xl"
             w={{ base: "90%", sm: "70%", md: "60%", "2xl": "100%" }}
-            h={{ base: "80vh", sm: "80vh", md: "80%" }}
+            h={{ base: "80vh", sm: "80vh", md: "80%", lg: "80vh" }}
           >
             <CardBody
               overflow="auto"
@@ -271,24 +280,25 @@ export const RecipePage = ({ item, clickFn }) => {
               </Box>
             </CardBody>
           </Card>
+          <Button
+            px={{ base: "20px", sm: "50px", "2xl": "70px" }}
+            py={{ base: "5px", sm: "3px", "2xl": "20px" }}
+            fontSize={{ base: "14px", sm: "14px", md: "16px" }}
+            w="fit-content"
+            bgColor="#D4A759"
+            color="gray.900"
+            onClick={() => clickFn()}
+            _hover={{
+              color: "Whitesmoke",
+              bgColor: "transparent",
+              border: "1px solid whitesmoke",
+            }}
+            marginTop={5}
+          >
+            HOME
+          </Button>
         </Flex>
       </Center>
-      <Button
-        position={"relative"}
-        bottom={{ base: "6%", sm: "8%", md: "12%", "2xl": "7%" }}
-        fontSize={{ base: "14px", sm: "14px", md: "16px" }}
-        w="fit-content"
-        bgColor="#D4A759"
-        color="gray.900"
-        onClick={() => clickFn()}
-        _hover={{
-          color: "Whitesmoke",
-          bgColor: "transparent",
-          border: "1px solid whitesmoke",
-        }}
-      >
-        Back to Home Page
-      </Button>
     </Center>
   );
 };

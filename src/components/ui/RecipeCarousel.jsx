@@ -13,9 +13,6 @@ export const RecipeCarousel = ({ items, clickFn }) => {
   // Dynamically adjust the number of cards shown per slide
   const columns = useBreakpointValue({ base: 1, sm: 2, md: 3, "2xl": 3 });
 
-  // const left = "./img/left_or.svg";
-  // const right = "./img/right_or.svg";
-
   // Calculate total width of the carousel
   const totalWidth = items.length * (100 / columns);
 

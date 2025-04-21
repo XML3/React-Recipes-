@@ -32,7 +32,7 @@ export const RecipeItemCard = ({ item, clickFn }) => {
           bgColor="whitesmoke"
           borderRadius="xl"
           w={{ base: "90%", sm: "95%", md: "90%", "2xl": "90%" }}
-          h="60vh"
+          h={{ base: "60vh", md: "100vh", lg: "60vh" }}
           // minH={"10vh"}
           onClick={() => clickFn(item)}
           cursor="pointer"
